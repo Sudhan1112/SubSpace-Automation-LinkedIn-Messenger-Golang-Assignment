@@ -1,0 +1,52 @@
+package rod // import "github.com/go-rod/rod"
+
+type Mouse struct {
+	sync.Mutex
+
+	// Has unexported fields.
+}
+    Mouse represents the mouse on a page, it's always related the main frame.
+
+func (m *Mouse) Click(button proto.InputMouseButton, clickCount int) error
+    Click the button. It's the combination of Mouse.Down and Mouse.Up.
+
+func (m *Mouse) Down(button proto.InputMouseButton, clickCount int) error
+    Down holds the button down.
+
+func (m *Mouse) MoveAlong(guide func() (proto.Point, bool)) error
+    MoveAlong the guide function. Every time the guide function is called it
+    should return the next mouse position, return true to stop. Read the source
+    code of Mouse.MoveLinear as an example to use this method.
+
+func (m *Mouse) MoveLinear(to proto.Point, steps int) error
+    MoveLinear to the absolute position with the given steps. Such as move from
+    (0,0) to (6,6) with 3 steps, the mouse will first move to (2,2) then (4,4)
+    then (6,6).
+
+func (m *Mouse) MoveTo(p proto.Point) error
+    MoveTo the absolute position.
+
+func (m *Mouse) MustClick(button proto.InputMouseButton) *Mouse
+    MustClick is similar to Mouse.Click.
+
+func (m *Mouse) MustDown(button proto.InputMouseButton) *Mouse
+    MustDown is similar to Mouse.Down.
+
+func (m *Mouse) MustMoveTo(x, y float64) *Mouse
+    MustMoveTo is similar to [Mouse.Move].
+
+func (m *Mouse) MustScroll(x, y float64) *Mouse
+    MustScroll is similar to Mouse.Scroll.
+
+func (m *Mouse) MustUp(button proto.InputMouseButton) *Mouse
+    MustUp is similar to Mouse.Up.
+
+func (m *Mouse) Position() proto.Point
+    Position of current cursor.
+
+func (m *Mouse) Scroll(offsetX, offsetY float64, steps int) error
+    Scroll the relative offset with specified steps.
+
+func (m *Mouse) Up(button proto.InputMouseButton, clickCount int) error
+    Up releases the button.
+
