@@ -25,32 +25,48 @@ The system is composed of the following key components:
 Detailed architecture is available in [docs/HLD.md](docs/HLD.md).
 
 ## 📂 Project Structure
-```
+```text
 /backend
-  /cmd
-    main.go       # Entry point
-  /internal
-    auth          # Authentication logic
-    search        # Search & Navigation logic
-    messaging     # Connection & Messaging logic
-    stealth       # Anti-bot implementation
-    browser       # Rod wrapper
-    config        # Configuration loader
-    storage       # SQLite handler
-    logger        # Structured logging
+ ├── cmd
+ │   └── server
+ │       └── main.go         # Application entry point
+ ├── internal
+ │   ├── api
+ │   │   └── handler.go      # REST API handlers (Start, Stop, Status)
+ │   ├── automation
+ │   │   ├── auth.go         # Login authentication logic
+ │   │   ├── browser.go      # Rod browser & stealth initialization
+ │   │   ├── connect.go      # Connection request logic
+ │   │   ├── message.go      # Messaging logic
+ │   │   └── search.go       # Search & Pagination logic
+ │   ├── models
+ │   │   ├── config.go       # Configuration structs
+ │   │   └── data.go         # Profile & Task data models
+ │   ├── store
+ │   │   └── sqlite.go       # SQLite database persistence
+ │   └── utils
+ │       └── random.go       # Helix/Stealth randomization helpers
+ ├── go.mod
+ └── go.sum
 
 /frontend
-  /src            # React source code
-  package.json    # Dependencies
+ ├── src
+ │   ├── assets/             
+ │   ├── App.css             # Component styles
+ │   ├── App.jsx             # Main Dashboard UI & Logic
+ │   ├── index.css           # Global styles & Tailwind directives
+ │   └── main.jsx            # React entry point
+ ├── package.json
+ └── vite.config.js
 
 /docs
-  HLD.md          # High-Level Design
-  LLD.md          # Low-Level Design
-  API.md          # API Specifications
-  STEALTH.md      # Anti-Detection Strategy
+ ├── HLD.md                  # High-Level System Architecture
+ ├── LLD.md                  # Low-Level Component Design
+ ├── API.md                  # REST API Documentation
+ └── STEALTH.md              # Anti-Bot Evasion Strategy
 
-.env.example      # Environment variables template
-README.md         # Master documentation
+.env.example                 # Environment Configuration Template
+README.md                    # Project Documentation
 ```
 
 ## ⚙️ Tech Stack
