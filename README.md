@@ -110,7 +110,7 @@ Open your browser to `http://localhost:5173` to interact with the Automator.
 7.  **Exit**: The system handles stops or failures by cleaning up browser contexts gracefully.
 
 ## 🎥 Demo Video
-[Link to Demo Video would go here]
+[[Link to Demo Video would go here](https://drive.google.com/file/d/1cVEbIblPFTai8m1Yp8zfXk7aJgMFQidG/view?usp=sharing)]
 
 ## 📚 Additional Documentation
 - **High-Level Design**: [docs/HLD.md](docs/HLD.md)
