@@ -1,4 +1,4 @@
-# SubSpace Automator
+# SubSpace Automator (LinkedIn Messenger (Golang))
 A Go + Rod based browser automation proof-of-concept demonstrating human-like behavior and stealth techniques for educational evaluation.
 
 ## ⚠️ Legal & Ethical Disclaimer
