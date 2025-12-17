@@ -24,6 +24,35 @@ The system is composed of the following key components:
 
 Detailed architecture is available in [docs/HLD.md](docs/HLD.md).
 
+## 📂 Project Structure
+```
+/backend
+  /cmd
+    main.go       # Entry point
+  /internal
+    auth          # Authentication logic
+    search        # Search & Navigation logic
+    messaging     # Connection & Messaging logic
+    stealth       # Anti-bot implementation
+    browser       # Rod wrapper
+    config        # Configuration loader
+    storage       # SQLite handler
+    logger        # Structured logging
+
+/frontend
+  /src            # React source code
+  package.json    # Dependencies
+
+/docs
+  HLD.md          # High-Level Design
+  LLD.md          # Low-Level Design
+  API.md          # API Specifications
+  STEALTH.md      # Anti-Detection Strategy
+
+.env.example      # Environment variables template
+README.md         # Master documentation
+```
+
 ## ⚙️ Tech Stack
 - **Language**: Golang (1.20+)
 - **Automation Lib**: Rod (DevTools Protocol)
